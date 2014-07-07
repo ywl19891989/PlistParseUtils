@@ -40,7 +40,7 @@ def checkArgs(args):
     imgExts = [".png", ".jpg", ".bmp"]
     
     for fPath in fileArr:
-        rr, extName = os.path.splitext(fPath)
+        extName = os.path.splitext(fPath)[1]
         if extName == ".plist":
             outPath = fPath.replace(srcDir, dstDir)
             outPath = outPath[0:len(outPath) - 6]

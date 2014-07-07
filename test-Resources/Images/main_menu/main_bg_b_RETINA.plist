@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>texture</key>
+	<dict>
+		<key>width</key>
+		<integer>1024</integer>
+		<key>height</key>
+		<integer>512</integer>
+	</dict>
+	<key>frames</key>
+	<dict>
+		<key>main_bg_a@2x.png</key>
+		<dict>
+			<key>id</key>
+			<integer>1000</integer>
+			<key>x</key>
+			<integer>1</integer>
+			<key>y</key>
+			<integer>330</integer>
+			<key>width</key>
+			<integer>640</integer>
+			<key>height</key>
+			<integer>164</integer>
+			<key>offsetX</key>
+			<real>0</real>
+			<key>offsetY</key>
+			<real>0</real>
+			<key>originalWidth</key>
+			<integer>640</integer>
+			<key>originalHeight</key>
+			<integer>164</integer>
+		</dict>
+		<key>main_bg_b@2x.png</key>
+		<dict>
+			<key>id</key>
+			<integer>1001</integer>
+			<key>x</key>
+			<integer>1</integer>
+			<key>y</key>
+			<integer>1</integer>
+			<key>width</key>
+			<integer>640</integer>
+			<key>height</key>
+			<integer>328</integer>
+			<key>offsetX</key>
+			<real>0</real>
+			<key>offsetY</key>
+			<real>0</real>
+			<key>originalWidth</key>
+			<integer>640</integer>
+			<key>originalHeight</key>
+			<integer>328</integer>
+		</dict>
+	</dict>
+</dict>
+</plist>

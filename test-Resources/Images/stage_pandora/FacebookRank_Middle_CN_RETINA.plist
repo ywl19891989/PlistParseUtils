@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>texture</key>
+	<dict>
+		<key>width</key>
+		<integer>512</integer>
+		<key>height</key>
+		<integer>64</integer>
+	</dict>
+	<key>frames</key>
+	<dict>
+		<key>rank_offline_unavailable_china@2x.png</key>
+		<dict>
+			<key>id</key>
+			<integer>9516</integer>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>0</integer>
+			<key>width</key>
+			<integer>327</integer>
+			<key>height</key>
+			<integer>31</integer>
+			<key>offsetX</key>
+			<real>0.5</real>
+			<key>offsetY</key>
+			<real>-0.5</real>
+			<key>originalWidth</key>
+			<integer>340</integer>
+			<key>originalHeight</key>
+			<integer>56</integer>
+		</dict>
+	</dict>
+</dict>
+</plist>
