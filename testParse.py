@@ -28,3 +28,4 @@ for fileName in allPlist:
         print "    %s" % f.fDict
     print "}"
     
+print "============ parse end ============"

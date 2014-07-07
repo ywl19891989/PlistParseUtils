@@ -82,7 +82,7 @@ class Frame:
         self.ow, self.oh = ow, oh
         self.fDict = {  "dir": self.tex.texDir, "name": self.name,
                         "x": x, "y": y, "w": w, "h": h,
-                        "ox": ox, "oy": oy, "ow": ow, "oh": oh}
+                        "ox": ox, "oy": oy, "ow": ow, "oh": oh }
 
 class Texture:
     texDir, texName = None, None
@@ -249,3 +249,6 @@ def testHandler():
     xmlParser = XMLParser()
     rootNode = xmlParser.parse("res/cha.plist")
     print rootNode
+
+if __name__ == "__main__":
+    print "start straightly"
