@@ -1,6 +1,6 @@
 # coding=gbk
 '''
-Created on 2014年3月28日
+Created on 2014-03-28
 
 @author: wenlongyang
 '''
