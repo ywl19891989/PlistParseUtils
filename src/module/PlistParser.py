@@ -8,6 +8,8 @@ from xml.sax import ContentHandler, make_parser
 import StringIO
 import Image
 import os
+from data.Texture import Texture
+from data.Frame import Frame
 
 class XMLParser(ContentHandler):
     
@@ -64,34 +66,6 @@ class XMLParser(ContentHandler):
             self.temp = ""
         self.temp += content
         self.curE[self.KEY_VALUE] = self.temp.strip()
-
-class Frame:
-    tex = None
-    name = None
-    x, y = None, None
-    w, h = None, None
-    offset_x, offset_y = None, None
-    original_w, original_h = None, None
-    rotated = False
-    
-    fDict = {}
-    
-    def init(self, x, y, w, h, ox, oy, ow, oh):
-        self.x, self.y = x, y
-        self.w, self.h = w, h
-        self.ox, self.oy = ox, oy
-        self.ow, self.oh = int(ow), int(oh)
-
-class Texture:
-    texDir, texName = None, None
-    w, h = None, None
-    
-    tDict = {}
-    
-    def init(self, texDir, texName, w, h):
-        self.texDir, self.texName = texDir, texName
-        self.w, self.h = w, h
-        self.tDict = { "texDir": texDir, "texName": texName, "w": w, "h": h }
 
 class PlistParser:
     textures = []
@@ -161,8 +135,6 @@ class PlistParser:
         texture.texName = textureFileName
         
         
-        print "format %d" % self.format
-        print "dir %s, name %s" % (texture.texDir, texture.texName)
         texPath = str(texture.texDir + texture.texName)
         if not os.path.exists(texPath):
             print "texture %s not exist!" % texPath
@@ -171,8 +143,6 @@ class PlistParser:
         texSize = texFile.size
         w, h = texSize[0], texSize[0]
         texture.init(fileDir, textureFileName, w, h)
-        print "img w %d, h %d" % (texture.w, texture.h)
-        print "metaData: %s" % metaData
         
         
         frameArr = []

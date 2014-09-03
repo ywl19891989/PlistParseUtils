@@ -7,6 +7,8 @@ Created on 2014-3-27
 import sys
 import os
 from PlistParser import PlistParser
+from ImageUtils import cropImg
+from FileUtils import *
 import Image
 
 logInfo = 0
@@ -46,19 +48,6 @@ def walkDir(dirPath):
     log(logInfo, "}")
     return fileArr
 
-def cropImg(img, frame):
-    ow, oh = int(frame.ow), int(frame.oh)
-    newImg = Image.new("RGBA", (ow, oh), (255, 255, 255, 255))
-    newImg.putalpha(0)
-    box = (int(frame.x), int(frame.y), int(frame.x + frame.w), int(frame.y + frame.h))
-    cropImg = img.crop(box)
-    x = int((frame.ow - frame.w)/2 + frame.ox)
-    y = int(frame.oh - ((frame.oh - frame.h)/2 + frame.oy))
-    a = cropImg.split()[3]
-    newImg.paste( cropImg, (x, oh - y), mask = a)
-    print "after paste newImg show should have things"
-    return newImg
-    
 def checkArgs(args):
     if len(args) < 4:
         printUsage()
@@ -82,7 +71,7 @@ def checkArgs(args):
                 os.makedirs(outPath)
             for frame in frameArr:
                 newImg = cropImg(imgFile, frame)
-                if frame.name[-4:] != ".png":
+                if not isImgExt(frame.name):
                     frame.name = frame.name + ".png"
                 print "name %s" % frame.name
                 op = outPath + "\\" + frame.name

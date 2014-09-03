@@ -8,8 +8,7 @@ Created on 2014-3-27
 import sys
 import os
 import Image
-from PlistParser import Frame, Texture
-from cgitb import text
+from PlistParser import Frame
 
 def printUsage():
     print "Usage: ImageUtils.py [-s input=srcImgPath outSize=[(width,heigh)|(x,y,width,heigt)] outPath=outPath]"
@@ -62,18 +61,27 @@ def cropImg(img, frame):
 
     rotation = 0
     if frame.rotated == True:
-        print "rotated %s" % frame.rotated
         w, h = h, w
         rotation = 90
         
     box = (x, y, x + w, y + h)
     
-    newImg = Image.new("RGB", (frame.ow, frame.oh), (255, 255, 255))
-    newImg.putalpha(0)
-    cropImg = img.crop(box)
-    cropImg = cropImg.rotate(rotation)
-    r, g, b, a = cropImg.split()
-    newImg.paste( cropImg, (px, py), mask = a)
+    if frame.ow == 0:
+        frame.ow = 1
+    if frame.oh == 0:
+        frame.oh = 1
+    
+    newImg = img.resize((frame.ow, frame.oh))
+    newImg.putalpha(255)
+    
+    if w > 0 and h > 0:
+        cropImg = img.crop(box)
+        cropImg = cropImg.rotate(rotation)
+
+        for i in range(cropImg.size[0]):
+            for j in range(cropImg.size[1]):
+                newImg.putpixel((i + px, j + py), cropImg.getpixel((i, j)))
+    
     return newImg
     
 def checkArgs(args):
