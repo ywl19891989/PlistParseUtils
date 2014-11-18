@@ -8,8 +8,8 @@ from xml.sax import ContentHandler, make_parser
 import StringIO
 import Image
 import os
-from data.Texture import Texture
-from data.Frame import Frame
+from module.data.Texture import Texture
+from module.data.Frame import Frame
 
 class XMLParser(ContentHandler):
     
@@ -96,13 +96,10 @@ class PlistParser:
             keyValue = childs[i + 1]
             
             if keyValue[XMLParser.KEY_CHILDS] != None:
-#                 print "value objects"
                 keyValue = self.getValueMap(keyValue)
             elif len(keyValue[XMLParser.KEY_VALUE]) > 0:
-#                 print "value string"
                 keyValue = str(keyValue[XMLParser.KEY_VALUE])
             elif len(keyValue[XMLParser.KEY_VALUE]) == 0:
-#                 print "value name"
                 keyValue = str(keyValue[XMLParser.KEY_NAME])
             else:
                 print "value error"
@@ -219,5 +216,5 @@ class PlistParser:
 def testHandler():
     print "=============== SAX方式解析XML文档 ==================="
     xmlParser = XMLParser()
-    rootNode = xmlParser.parse("res/cha.plist")
+    rootNode = xmlParser.parse("test-Resources/res/plist/test.plist")
     print rootNode

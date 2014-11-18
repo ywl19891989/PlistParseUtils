@@ -7,7 +7,6 @@ Created on 2014年9月3日
 import Image
 import os
 from ImageUtils import cropImg
-from FileUtils import *
 
 def main():
     print "main"

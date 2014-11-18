@@ -6,7 +6,7 @@ Created on 2014-03-28
 '''
 
 import os
-import Log
+import module.Log as Log
 
 IMG_EXT_DIC = {".png" : 1, ".jpg": 1}
 
@@ -49,7 +49,8 @@ def removeDir(dirPath):
             os.remove(os.path.join(root, name))
         for name in dirs:
             os.rmdir(os.path.join(root, name))
-    os.rmdir(dirPath)
+    if os.path.exists(dirPath):
+        os.rmdir(dirPath)    
     
 def isImgExt(filePath):
     extName = os.path.splitext(filePath)[1]

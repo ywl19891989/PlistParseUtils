@@ -7,7 +7,7 @@ Created on 2014-3-27
 import sys
 import os
 from PlistParser import PlistParser
-from ImageUtils import cropImg
+from module.ImageUtils import cropImg
 from FileUtils import *
 import Image
 
